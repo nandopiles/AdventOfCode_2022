@@ -1,8 +1,6 @@
 package org.example.Day2;
 
-import javax.imageio.IIOException;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class Day2 {
