@@ -17,29 +17,23 @@ public class Day1 {
         return max;
     }
 
-    public static void main(String[] args) {
-        File f = new File("./inputs/Day1_inputs.txt");
+    public static void main(String[] args) throws IOException {
+        File f = new File("./inputs/Day1_input.txt");
         BufferedReader br = null;
         String text;
         int kcal, totalKcal = 0;
         ArrayList<Integer> listKcal = new ArrayList<>();
 
-        try {
-            br = new BufferedReader(new FileReader(f));
-            while ((text = br.readLine()) != null) {
-                if (text.equals("")) {
-                    listKcal.add(totalKcal);
-                    totalKcal = 0;
-                } else {
-                    kcal = Integer.parseInt(text);
-                    totalKcal += kcal;
-                }
+        br = new BufferedReader(new FileReader(f));
+        while ((text = br.readLine()) != null) {
+            if (text.equals("")) {
+                listKcal.add(totalKcal);
+                totalKcal = 0;
+            } else {
+                kcal = Integer.parseInt(text);
+                totalKcal += kcal;
             }
-            System.out.printf("Max => %d\n", maxOfArrayList(listKcal));
-        } catch (FileNotFoundException e) {
-            e.getMessage();
-        } catch (IOException e) {
-            e.getMessage();
         }
+        System.out.printf("Max => %d\n", maxOfArrayList(listKcal));
     }
 }

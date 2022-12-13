@@ -22,33 +22,27 @@ public class Day1v02 {
         return podium;
     }
 
-    public static void main(String[] args) {
-        File f = new File("./inputs/Day1_inputs.txt");
+    public static void main(String[] args) throws IOException {
+        File f = new File("./inputs/Day1_input.txt");
         BufferedReader br = null;
         String text;
         int kcal, totalKcal = 0;
         ArrayList<Integer> listKcal = new ArrayList<>();
 
-        try {
-            br = new BufferedReader(new FileReader(f));
-            while ((text = br.readLine()) != null) {
-                if (text.equals("")) {
-                    listKcal.add(totalKcal);
-                    totalKcal = 0;
-                } else {
-                    kcal = Integer.parseInt(text);
-                    totalKcal += kcal;
-                }
+        br = new BufferedReader(new FileReader(f));
+        while ((text = br.readLine()) != null) {
+            if (text.equals("")) {
+                listKcal.add(totalKcal);
+                totalKcal = 0;
+            } else {
+                kcal = Integer.parseInt(text);
+                totalKcal += kcal;
             }
-            System.out.printf("1st => %d\n" +
-                    "2nd => %d\n" +
-                    "3rd => %d\n", sortArrayList(listKcal).get(0), sortArrayList(listKcal).get(1), sortArrayList(listKcal).get(2));
-            System.out.printf("Total => %d", getPodium(sortArrayList(listKcal)));
-        } catch (FileNotFoundException e) {
-            e.getMessage();
-        } catch (IOException e) {
-            e.getMessage();
         }
+        System.out.printf("1st => %d\n" +
+                "2nd => %d\n" +
+                "3rd => %d\n", sortArrayList(listKcal).get(0), sortArrayList(listKcal).get(1), sortArrayList(listKcal).get(2));
+        System.out.printf("Total => %d", getPodium(sortArrayList(listKcal)));
     }
 }
 
